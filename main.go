@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/cyse7125-sp25-team01/database"
-	"github.com/cyse7125-sp25-team01/handlers"
+	"github.com/cyse7125-sp25-team01/webapp-hello-world/database"
+	"github.com/cyse7125-sp25-team01/webapp-hello-world/handlers"
 )
 
 func main() {
