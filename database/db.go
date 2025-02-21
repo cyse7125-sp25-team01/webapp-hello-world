@@ -14,11 +14,11 @@ var DB *sql.DB
 func InitDB() {
 	var err error
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		getEnv("DB_HOST", "host.docker.internal"),
-		getEnv("DB_PORT", "5432"),
-		getEnv("DB_USER", "postgres"),
-		getEnv("DB_PASSWORD", "logesh"),
-		getEnv("DB_NAME", "webapp"),
+		getEnv("DB_HOST", ""),
+		getEnv("DB_PORT", ""),
+		getEnv("DB_USER", ""),
+		getEnv("DB_PASSWORD", ""),
+		getEnv("DB_NAME", ""),
 	)
 
 	DB, err = sql.Open("postgres", connStr)

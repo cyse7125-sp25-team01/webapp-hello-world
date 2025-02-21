@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Logeshwaran/webapp-hello-world/database"
+	"go-app/database"
 )
 
 // HealthCheckHandler handles the /healthz endpoint
@@ -19,6 +19,16 @@ func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	// Reject requests with a body (payload)
 	if r.ContentLength > 0 {
 		http.Error(w, "Bad Request", http.StatusBadRequest)
+		return
+	}
+
+	if len(r.URL.Query()) > 0 {
+		http.Error(w, "Bad Request - No query parameters allowed", http.StatusBadRequest)
+		return
+	}
+
+	if r.Header.Get("Content-Type") != "" {
+		http.Error(w, "Bad Request - No Content-Type header allowed", http.StatusBadRequest)
 		return
 	}
 
