@@ -7,7 +7,7 @@ pipeline {
     environment {
         IMAGE_NAME = "saimanasg/webapp-hello-world"
         DOCKER_CREDENTIALS_ID = "CloudJenkinsDockerHubPAT"
-        TAG = "${env.VERSION}" // Will be set in the 'Get Version' stage
+        TAG = "${env.VERSION}"
     }
 
     stages {
@@ -23,11 +23,9 @@ pipeline {
         stage('Get Version') {
             steps {
                 script {
-                    // Get the latest git tag
                     def currentVersion = sh(script: 'git describe --tags --abbrev=0', returnStdout: true).trim()
                     echo "Current version from Git tags: ${currentVersion}"
                     
-                    // Use npx semver to get the next version based on the current version
                     env.VERSION = sh(script: "npx semver -i patch ${currentVersion}", returnStdout: true).trim()
                     echo "Version set to: ${env.VERSION}"
                 }
@@ -49,7 +47,7 @@ pipeline {
                 script {
                     sh """
                         docker buildx build --platform linux/amd64,linux/arm64,linux/386,linux/ppc64le \\
-                        -t ${IMAGE_NAME}:${TAG} . --push
+                        -t ${IMAGE_NAME}:${env.VERSION} . --push
                     """
                 }
             }
