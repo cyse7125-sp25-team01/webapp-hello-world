@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/cyse7125-sp25-team01/database"
+	"github.com/cyse7125-sp25-team01/webapp-hello-world/database"
 )
 
 // HealthCheckHandler handles the /healthz endpoint
