@@ -1,9 +1,14 @@
 pipeline {
     agent any
+    environment {
+        NEXT_VERSION = nextVersion()
+        TAG = "${NEXT_VERSION}"
+    }
     stages {
         stage('Check Commit Message') {
             steps {
                 script {
+                    echo ${TAG}
                     def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
                     echo "Commit Message: ${commitMessage}"
                     sh """
