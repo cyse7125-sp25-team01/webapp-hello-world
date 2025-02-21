@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Logeshwaran/webapp-hello-world/database"
-	"github.com/Logeshwaran/webapp-hello-world/handlers"
+	"go-app/database"
+	"go-app/handlers"
 )
 
 func main() {

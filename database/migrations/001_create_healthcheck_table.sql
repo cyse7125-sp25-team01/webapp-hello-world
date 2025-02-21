@@ -1,7 +1,0 @@
-CREATE SCHEMA IF NOT EXISTS webapp;
-SET search_path TO webapp;
-
-CREATE TABLE IF NOT EXISTS healthcheck (
-    id SERIAL PRIMARY KEY,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
