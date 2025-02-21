@@ -1,4 +1,4 @@
-module go-app
+module github.com/cyse7125-sp25-team01/webapp-hello-world
 
 go 1.22
 

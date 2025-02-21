@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"go-app/database"
+	"github.com/cyse7125-sp25-team01/database"
 )
 
 // HealthCheckHandler handles the /healthz endpoint

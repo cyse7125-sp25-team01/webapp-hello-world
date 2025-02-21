@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"go-app/database"
-	"go-app/handlers"
+	"github.com/cyse7125-sp25-team01/database"
+	"github.com/cyse7125-sp25-team01/handlers"
 )
 
 func main() {
